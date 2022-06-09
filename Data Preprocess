@@ -1,0 +1,40 @@
+It is always good to process the data without any missing values. But this dataset has a total of 11 missing values in the Total charges feature and those missing values have been removed for better analysis.
+
+# Load the necessary Libraries
+
+install.packages("dplyr")
+library(dplyr)
+install.packages("tidyverse")
+library(tidyverse)
+install.packages("caret")
+library(caret)
+install.packages("C50")
+library(C50)
+install.packages("gmodels")
+library(gmodels)
+
+#Load and Read CSV file
+
+CChurn <- read.csv("Telco_Customer_Attrition.csv", header = TRUE,stringsAsFactors = TRUE)
+
+#View data
+
+view(CChurn)
+
+#Get the structures of the data
+
+str(CChurn)
+
+#Find the missing values in the dataset
+
+sum(is.na(CChurn)
+
+#Find the missing value column
+
+colSums(is.na(CChurn))
+
+#Remove/Exclude the missing values(NA) from the dataset and assign this to another varibale
+
+CAttrition <- na.exclude(CChurn)
+
+
