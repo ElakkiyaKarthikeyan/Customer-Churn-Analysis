@@ -104,7 +104,7 @@ By seeing this, could understand the gender factors Male and Female are in almos
 
 The IBM Cognos Telco has diverse types of Phone Services such as Single, Multiple, and No phone line users. All the three categories are on the same level, but Multiple line users are a 3-4% higher chance of churn than other phone line service users.
 
-![Customer_Churn_Phone_Service](/Customer_Churn_Distribution_by_Gender_SeniorCitizen.png)
+![Customer_Churn_Phone_Service](/Customer_Churn_Phone_service.png)
 
 **Customer Churn by Internet Service**
 
@@ -129,3 +129,58 @@ The churned customers’ average tenure with the company was 18 months and the a
 The churned customers’ average tenure with the company was 18 months and the active customers’ average tenure is 38 months. On the other hand, the average monthly charge paid by churned customers was $74.44 which represents $13 higher than the active customer’s average monthly charges. Furthermore, when comparing Monthly charges based on contract type, the churned customers paid more charges than active customers.
 
 ![Customer_Churn_Monthly_Charges](/Customer_Churn_MonthlyCharges.png)
+## ML Modelling
+
+## The Machine Learning model used in the dataset
+
+ 1. Decision Tree
+ 
+
+ https://github.com/ElakkiyaKarthikeyan/Customer-Churn-Analysis/blob/main/ML%20Model
+
+
+** Data Split for Training and Testing**
+ 
+The dataset has been split into train and test data.
+
+**Training Data **
+
+![Data_Split](/Train_Data_Properties.png)
+
+**Test Data**
+
+![Data_Split](/Test_Data_Properties.png)
+
+**Model Build**
+
+According to the model built, the tree size is 10 and it is restricted based on the cases. If the customer contract is month-to-month and opted for either DSL internet service or no internet service that if their tenure is less than or equal to three months with that if they have not subscribed for technical support, then they are 59% likely to churn then other customers. On the other hand, if the customer is using the Fiber optic-based internet services and their tenure is less than or equal to 15 months then their churn rate is nearly 70%. 
+However, if the customer tenure is within 51 months and subscribed for multiple lines but with no online security and they are billing their charges via electronic check then they are nearly 58% likely to churn.
+
+![Decision_Tree](/Customer_Churn_Decision_Tree.png)
+
+**Training Evaluation**
+
+The evaluation of the training data describing a 19.7% error rate. From the training observations, 512 indicate false positives and 738 indicate false negatives. So, the accuracy of the training model is (4150+949)/6349 (%) which is 80.3 % accuracy.
+
+![Training_Evaluation](/Training_Evaluation_1.png)
+![Training_Evaluation](/Training_Evaluation_2.png)
+
+**Model Evaluation**
+
+Lastly, must check the performance of the model built for this dataset. It shows, that 52 are false positives and 83 are true negatives which mean 19.7 % [(52+83)/683] as the error rate. So, the accuracy of the performance evaluation for this model is 80.3 % which is the same as the training model accuracy.
+
+![Model_Evaluation](/Test_Evaluation.png)
+
+## Key Findings and Suggestions
+
+As a summary of the analysis and machine learning algorithm, the gender variable and phone service variable do not make much impact on the customer churn prediction. The numeric variables such as tenure, and monthly charges are having better association with the target variable. Another important feature is the contract type. 
+
+Only Identifying customer churn will not help the organization, they must take proactive measures to increase customer retention. Following are some of the recommendations to reduce the churn rate. As per the analysis, the more no. churned customers are youngsters, so to attract them, the company can provide novel offers as a half-price on internet services after 10 PM until the next morning at 6 AM. 
+
+Churned customers paid more on monthly charges compared to the active customers which means high monthly charges may be one of the reasons for customer churn. To reduce this, the company can offer them that if they increase their tenure then the monthly charge will get reduced accordingly.
+
+For the customers who have subscribed for multiple lines, the company can offer free technical support to attract multiple-line customers. Companies can target the predicted customers and try to take some surveys about their service. So that, they will get a chance to understand the customers’ expectation and their satisfaction levels with the service. 
+
+Target the customer who does not subscribe for internet services, technical support, backup, etc., as part of marketing, the company can provide 3 months trial for those services to the customers. This will help to attract them to use those services and if they immediately opt for this plan after the trial pack ends, the company can provide a 10% price drop on their monthly charges.
+
+Finally, some of the organizations take this churn analysis at the end of every financial year. But it would be better to take such analysis and prediction every quarter, so that company gets some understanding of their customers to increase business benefit and resolve customer issues. These recommendations can be used not only to retain the existing customers and will be helpful to attract new customers to the organization.
