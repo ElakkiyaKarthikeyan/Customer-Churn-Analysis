@@ -134,16 +134,16 @@ The churned customers’ average tenure with the company was 18 months and the a
 ## The Machine Learning model used in the dataset
 
  1. Decision Tree
- 
+
 
  https://github.com/ElakkiyaKarthikeyan/Customer-Churn-Analysis/blob/main/ML%20Model
 
 
-** Data Split for Training and Testing**
+**Data Split for Training and Testing**
  
 The dataset has been split into train and test data.
 
-**Training Data **
+**Training Data**
 
 ![Data_Split](/Train_Data_Properties.png)
 
