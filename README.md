@@ -50,3 +50,7 @@ FEATURE_NAME - DESCRIPTION - TYPE
 **Total Charges** - Indicates the customer’s total charges, calculated to the end of the quarter - Numerical
 
 **Churn** - A customer leaves the company or not: Yes, no - Categorical
+
+##The machine learning model used in this dataset
+
+1.Decision Tree
