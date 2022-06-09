@@ -1,0 +1,24 @@
+Generally, ML algorithms are used to make prediction models attain the target. In this analysis, the decision tree prediction model is used to predict customer churn. Here, the dataset is separated as train and test datasets which are 90% and 10% respectively. The model is getting trained by using a training dataset and a test dataset will be used to evaluate the model.
+
+summary(CAttrition)
+
+set.seed(123)
+train_sample <- sample(10000, 9000)
+str(train_sample)
+churn_train <- CAttrition %>% slice(train_sample)
+churn_test <- CAttrition %>% slice(-train_sample)
+
+prop.table(table(churn_train$Churn))
+prop.table(table(churn_test$Churn))
+
+churn_model <- C5.0(churn_train[-21], churn_train$Churn)
+
+churn_model
+
+plot(churn_model)
+
+
+churn_pred <- predict(churn_model, churn_test)
+
+CrossTable(churn_test$churn, churn_pred,prop.chisq = FALSE, prop.c = FALSE, prop.r = FALSE,
+           dnn = c('actual churn', 'predicted churn'))
