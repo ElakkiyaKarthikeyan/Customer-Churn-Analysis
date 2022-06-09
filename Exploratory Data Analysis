@@ -1,0 +1,99 @@
+The objective of the analysis is to explore the dataset and create a visualization to recognize which features and combinations of features are correlated with the target feature churn.
+
+# Customer Churn Distribution
+ggplot(data=CAttrition) +
+  geom_bar(mapping=aes(x=Churn,fill=Churn),width=0.5)+
+  ggtitle("Customer Churn Category")+
+  theme(plot.title=element_text(hjust =0.5,size=15,face="bold"),legend.position="none")+
+  labs(y="Customer_Count",x="Churn_Label")+
+  scale_fill_manual(values=c("cornflowerblue","chartreuse3"))
+
+# Churn rate by gender and senior citizen
+CAttrition%>%
+  select(Churn,SeniorCitizen,gender)%>%
+  mutate(SeniorCitizen = factor(SeniorCitizen, levels = c(1,0), labels = c("Senior","Younger")))%>%
+  group_by(Churn,SeniorCitizen,gender) %>%
+  count()%>%
+  ggplot(aes(x=gender,y=n, fill = Churn))+
+  geom_col(position = "fill")+
+  facet_grid(. ~ SeniorCitizen)+
+  labs(x="Gender", y="Customers", fill="Churn_Category")+
+  ggtitle("Customer Churn distribution by Gender and Seniority")+
+  theme(plot.title=element_text(hjust=0.5, size=12,face="bold"),legend.position = "right")+
+  scale_y_continuous(labels=scales::percent)+
+  scale_fill_manual(values=c("deeppink","purple"))
+  
+#Churn rate by Phone Service Types
+CAttrition%>%
+  select(Churn,MultipleLines)%>%
+  mutate(MultipleLines = factor(MultipleLines, 
+                                levels = c("No","Yes","No phone service"),
+                                labels = c("Single","Multiple","No Line")))%>%
+  group_by(Churn,MultipleLines) %>%
+  count()%>%
+  ggplot(aes(x=MultipleLines,y=n, fill = Churn))+
+  geom_col(position = "fill")+
+  labs(x="Different_Phone_Lines", y="Customers", fill="Churn_Category")+
+  ggtitle("Customer Churn by Phone Service Types")+
+  theme(plot.title=element_text(hjust=0.5, size=12,face="bold"),legend.position = "right")+
+  scale_y_continuous(labels=scales::percent)+
+  scale_fill_manual(values=c("gray","cyan"))
+  
+#Churn rate by Internet Service Types
+CAttrition%>%
+  select(Churn,InternetService,OnlineSecurity,OnlineBackup)%>%
+  mutate(OnlineSecurity = factor(OnlineSecurity, 
+                                levels = c("No","Yes","No internet service"),
+                                labels = c("No Security","Security","No internet")),
+         OnlineBackup = factor(OnlineBackup,
+                               levels=c("No","Yes","No internet service"),
+                               labels=c("No backup","Backup","No internet")))%>%
+  group_by(Churn,InternetService,OnlineSecurity,OnlineBackup) %>%
+  count()%>%
+  ggplot(aes(x=InternetService,y=n, fill = Churn))+
+  geom_col(position = "fill")+
+  facet_grid(OnlineBackup ~ OnlineSecurity)+
+  labs(y="Customers", fill="Churn_Category")+
+  ggtitle("Customer Churn by Internet Service")+
+  theme(plot.title=element_text(hjust=0.5, size=12,face="bold"),legend.position = "bottom")+
+  scale_y_continuous(labels=scales::percent)+
+  scale_fill_manual(values=c("goldenrod3","gold"))
+  
+#Churn rate by TV/Phone Service
+CAttrition%>%
+  select(Churn,PhoneService,StreamingTV,StreamingMovies)%>%
+  mutate(StreamingTV = factor(StreamingTV, 
+                                 levels = c("No","Yes","No internet service"),
+                                 labels = c("No TV","TV","No internet")),
+         StreamingMovies = factor(StreamingMovies,
+                               levels=c("No","Yes","No internet service"),
+                               labels=c("No Streaming","Streaming Movies","No internet")))%>%
+  group_by(Churn,PhoneService,StreamingTV,StreamingMovies) %>%
+  count()%>%
+  ggplot(aes(x=PhoneService,y=n, fill = Churn))+
+  geom_col(position = "fill")+
+  facet_grid(StreamingTV ~ StreamingMovies)+
+  labs(y="Customers", fill="Churn_Category")+
+  ggtitle("Customer Churn by TV/Phone Service ")+
+  theme(plot.title=element_text(hjust=0.5, size=12,face="bold"),legend.position = "bottom")+
+  scale_y_continuous(labels=scales::percent)
+  
+# Churn rate by device protection and Tech Support
+CAttrition%>%
+  select(Churn,DeviceProtection,TechSupport)%>%
+  mutate(DeviceProtection = factor(DeviceProtection, 
+                                   levels = c("Yes","No","No internet service"), 
+                                   labels = c("Protection","No protection","No internet service")),
+         TechSupport = factor(TechSupport,
+                              levels = c("Yes","No","No internet service"),
+                              labels = c("TechSupport", "No TechSupport","No internet service")))%>%
+  group_by(Churn,DeviceProtection,TechSupport) %>%
+  count()%>%
+  ggplot(aes(x=DeviceProtection,y=n, fill = Churn))+
+  geom_col(position = "fill")+
+  facet_grid(. ~ TechSupport)+
+  labs(x="DeviceProtection", y="Customers", fill="Churn_Category")+
+  ggtitle("Customer Churn by Support and Protection service")+
+  theme(plot.title=element_text(hjust=0.5, size=12,face="bold"),legend.position = "right")+
+  scale_y_continuous(labels=scales::percent)+
+  scale_fill_manual(values=c("orange","cyan"))
