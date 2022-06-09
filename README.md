@@ -77,4 +77,4 @@ Churn - A customer leaves the company or not: Yes, no - Categorical
 
 https://github.com/ElakkiyaKarthikeyan/Customer-Churn-Analysis/blob/main/Data%20Preprocess
 
-![Missing Value Image](/main/Missing_Values.png)
+![Missing Value Image](/Missing_Values.png)
