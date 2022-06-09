@@ -77,4 +77,55 @@ Churn - A customer leaves the company or not: Yes, no - Categorical
 
 https://github.com/ElakkiyaKarthikeyan/Customer-Churn-Analysis/blob/main/Data%20Preprocess
 
+Below image is the missing value count in the dataset
+
 ![Missing Value Image](/Missing_Values.png)
+
+## Exploratory Data Analysis
+
+The objective of the analysis is to explore the dataset and create a visualization to recognize 
+which features and combinations of features are correlated with the target feature churn.
+
+https://github.com/ElakkiyaKarthikeyan/Customer-Churn-Analysis/blob/main/Exploratory%20Data%20Analysis
+
+**Customer Churn Category**
+
+The target feature churn distribution according to the dataset.
+
+![Customer_Churn](/Customer_Churn_Category.png)
+
+**Customer Churn Distribution by Seniority and Gender**
+
+By seeing this, could understand the gender factors Male and Female are in almost the same proposition. On the other hand, another factor explains younger group customers’ churn rate is 49% higher than the senior customers.
+
+![Customer_Churn_Gender](/Customer_Churn_Distribution_by_Gender_SeniorCitizen.png)
+
+**Customer Churn by Phone Service**
+
+The IBM Cognos Telco has diverse types of Phone Services such as Single, Multiple, and No phone line users. All the three categories are on the same level, but Multiple line users are a 3-4% higher chance of churn than other phone line service users.
+
+![Customer_Churn_Phone_Service](/Customer_Churn_Distribution_by_Gender_SeniorCitizen.png)
+
+**Customer Churn by Internet Service**
+
+The customer churn distribution based on the three different internet services provided by the IBM Telco. According to the plot, the customers who used internet services are in a high proportion of churn risk compared to non-internet customers. Furthermore, fiber optic internet service users are more likely to churn and in addition to that most of them have not opted for any security or backup service from the service provider Telco. 
+
+![Customer_Churn_Internet_Service](/Customer_Churn_Internet_Services.png)
+
+**Customer Churn by Support and Protection Service**
+
+The customer churn rate is more affected by the customers who do not subscribe to the technical support and protection service from the service provider while compared with the technical support and protection service subscribers.
+
+![Customer_Churn_Support](/Customer_Churn_Support&Protection_Service.png)
+
+**Customer Churn by Contract and Payments**
+
+The churned customers’ average tenure with the company was 18 months and the active customers’ average tenure is 38 months. On the other hand, the average monthly charge paid by churned customers was $74.44 which represents $13 higher than the active customer’s average monthly charges. Furthermore, when comparing Monthly charges based on contract type, the churned customers paid more charges than active customers.
+
+![Customer_Churn_Contract_Payments](/Customer_churn_Contract_Payments.png)
+
+**Customer Churn by Monthly Charges**
+
+The churned customers’ average tenure with the company was 18 months and the active customers’ average tenure is 38 months. On the other hand, the average monthly charge paid by churned customers was $74.44 which represents $13 higher than the active customer’s average monthly charges. Furthermore, when comparing Monthly charges based on contract type, the churned customers paid more charges than active customers.
+
+![Customer_Churn_Monthly_Charges](/Customer_Churn_MonthlyCharges.png)
